@@ -1,12 +1,11 @@
 
 const apiURLWorkers = ("https://67701d46b353db80c3246245.mockapi.io/listUser/workers");
-const apiOrder = ("https://67701d46b353db80c3246245.mockapi.io/listUser/orders");
+const apiOrders = ("https://67701d46b353db80c3246245.mockapi.io/listUser/orders");
 displayWorkerData();
 
 async function displayWorkerData() {
     try {
         const workers = await fetchWorkersData();
-        console.log(workers);
         const userFatherDOM = document.getElementById('userDisplay');
         workers.forEach(users => {
             const imageAvatarDOM = document.createElement("img");
@@ -37,7 +36,8 @@ async function displayWorkerData() {
                 window.location.href = `tel: ${users.phoneNumber}`
             }
             buttonContactDOM.onclick = () => {
-                console.log("buttonContactDOM hoat dong", users.id);
+                getIDWorkerAndNegative(users.id);
+                // window.location =".."
             }
 
             userFatherDOM.appendChild(imageAvatarDOM);
@@ -54,6 +54,19 @@ async function displayWorkerData() {
     }
 }
 
+async function getIDWorkerAndNegative(idWorker) {
+    const respone = fetch(apiOrders, {
+        method: "PUT",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            idWorkerContact: idWorker
+        })
+    })
+    return (await respone).json();
+}
+
 async function fetchWorkersData() {
     try {
         const reponse = await fetch(apiURLWorkers);
@@ -65,7 +78,7 @@ async function fetchWorkersData() {
 }
 async function fetchOrdersData() {
     try {
-        const reponse = await fetch();
+        const reponse = await fetch(apiOrders);
         return await reponse.json()
     } catch (error) {
         console.log(error);
