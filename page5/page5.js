@@ -1,23 +1,23 @@
-function customerAccount(fullName, name, surname, email, phonenumber, elevatorLocation, address, description) {
+function customerAccount(fullName, name, surname, email, phoneNumber, backUpPhoneNumber, elevatorLocation, description) {
     this.fullName = fullName;
     this.name = name;
     this.surname = surname;
-    this.phonenumber = phonenumber;
+    this.phoneNumber = phoneNumber;
     this.email = email;
     this.elevatorLocation = elevatorLocation;
-    this.address = address;
+    this.backUpPhoneNumber = backUpPhoneNumber;
     this.description = description;
     this.image = null;
+    this.idWorkerContact = "";
 }
-const apiURL = ("https://67701d46b353db80c3246245.mockapi.io/api/api");
+const apiOrderURL = ("https://67701d46b353db80c3246245.mockapi.io/listUser/orders");
 const emailRegex = /^\w+([,.-]\w+)*@\w+(\.\w+)$/;
 const phoneNumberRegex = /^\d{3}[.-\s]?\d{3}[.-\s]?\d{4}$/;
-fecthData();
 submitButton();
 function submitButton() {
     document.getElementById('register-form').addEventListener('submit', function (event) {
         event.preventDefault();
-        const addressFather = document.getElementById('address').value;
+        const backUpPhoneNumber = document.getElementById('backUpPhoneNumber').value;
         const emailInput = document.getElementById('email').value;
         const phoneNumber = document.getElementById('number').value;
         const usernameInput = document.getElementById('username').value;
@@ -39,8 +39,8 @@ function submitButton() {
             window.alert("Please give us know the location you want to setup Elevator");
             return;
         }
-        else if (!addressFather) {
-            window.alert("Please fill your address");
+        else if (!backUpPhoneNumber) {
+            window.alert("Please fill your back up phone number");
             return;
         }
         else if (!fileInput || !fileInput.files || fileInput.files.length == 0) {
@@ -54,14 +54,13 @@ function submitButton() {
                 formData.get('name'),
                 formData.get('surname'),
                 formData.get('email'),
-                formData.get('phonenumber'),
+                formData.get('phoneNumber'),
+                formData.get('backUpPhoneNumber'),
                 formData.get('elevatorLocation'),
-                formData.get('address'),
                 formData.get('description'),
             );
-            converFileToBase64(customerInfortion, apiURL)
+            converFileToBase64(customerInfortion, apiOrderURL)
             window.alert("Register succeed!");
-            this.reset();
         }
     })
 }
@@ -78,11 +77,12 @@ async function addUserAccountToAPI(user, url, base64String) {
                 name: user.name,
                 surname: user.surname,
                 email: user.email,
-                phonenumber: user.phonenumber,
+                phoneNumber: user.phoneNumber,
                 elevatorLocation: user.elevatorLocation,
-                address: user.address,
+                backUpPhoneNumber: user.backUpPhoneNumber,
                 description: user.description,
-                image: base64String
+                image: base64String,
+                idWorkerContact: "",
             })
         })
         const data = await reponse.json();
@@ -155,7 +155,7 @@ function validationNumber(phoneNumberInput) {
 
 async function fecthData() {
     try {
-        const respone = await fetch(apiURL);
+        const respone = await fetch(apiOrderURL);
         const data = await respone.json();
         console.log(data);
     } catch (error) {
