@@ -39,9 +39,9 @@
     <div class="register-container">
         <p class="register-title">PERSÖNLICHE ANGABEN</p>
 
-        <form id="register-form">
+        <form id="register-form" class="register-form" novalidate>
             <div class="username-container">
-                <input type="text" id="username" name="username" class="input-username" placeholder="Firmenname*" />
+                <input type="text" id="username" name="fullName" class="input-username" placeholder="Firmenname*" />
                 <hr />
             </div>
 
@@ -58,7 +58,8 @@
 
             <div class="register-section">
                 <div class="register-part-left">
-                    <input type="number" id="number" name="phonenumber" class="input-form" placeholder="Telefonnummer*" />
+                    <input type="number" id="number" name="phonenumber" class="input-form"
+                        placeholder="Telefonnummer*" />
                     <hr />
                 </div>
                 <div class="register-part-right">
@@ -72,24 +73,28 @@
                     <input type="text" id="locationOfElevatorSystem" name="elevatorLocation" class="input-form"
                         placeholder="Standort der Aufzugsanlage*" />
                     <hr />
-                </div>
+                </div>s
                 <div class="register-part-right">
-                    <input type="number" id="contactPerson" name="contactPerson" class="input-form" placeholder="Ansprechpartner vor Ort" />
+                    <input type="number" id="phoneBackUp" name="phoneBackUp" class="input-form"
+                        placeholder="Ansprechpartner vor Ort" />
                     <hr />
                 </div>
             </div>
 
             <div>
                 <p class="additional-information">ERGÄNZUNGEN</p>
-                <textarea class="input-information" placeholder="Beschreiben Sie Ihr Anliegen"></textarea>
+                <textarea class="input-information" placeholder="Beschreiben Sie Ihr Anliegen"
+                    name="description"></textarea>
             </div>
 
             <div>
                 <p class="date-upload">DATEN-UPLOAD</p>
                 <div class="upload-file-border">
-                    <label>
-                        <img src="../asset/page5/icon-file-upload.svg" alt="upload-file">
-                        <input type="file" class="file-upload">
+                    <label id="label">
+                        <div id="inputFileContainer">
+                            <img src="../asset/page5/icon-file-upload.svg" alt="upload-file" id="imageArrow">
+                            <input onchange="displayImageOnInput()" type="file" class="file-upload" id="fileInput">
+                        </div>
                     </label>
                 </div>
             </div>
