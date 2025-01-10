@@ -72,4 +72,12 @@ body {
     width: 246px;
     height: 50px;
   }
+}
+.button {
+  background-color: white;
+  color: #748d88;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }/*# sourceMappingURL=page6.css.map */
