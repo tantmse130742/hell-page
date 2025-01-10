@@ -1,11 +1,11 @@
-function customerAccount(fullName, name, surname, email, phonenumber, elevatorLocation, phoneBackUp, description) {
+function customerAccount(fullName, name, surname, email, phonenumber, elevatorLocation, address, description) {
     this.fullName = fullName;
     this.name = name;
     this.surname = surname;
     this.phonenumber = phonenumber;
     this.email = email;
     this.elevatorLocation = elevatorLocation;
-    this.phoneBackUp = phoneBackUp;
+    this.address = address;
     this.description = description;
     this.image = null;
 }
@@ -17,17 +17,14 @@ submitButton();
 function submitButton() {
     document.getElementById('register-form').addEventListener('submit', function (event) {
         event.preventDefault();
+        const addressFather = document.getElementById('address').value;
         const emailInput = document.getElementById('email').value;
         const phoneNumber = document.getElementById('number').value;
         const usernameInput = document.getElementById('username').value;
         const nameInput = document.getElementById('name').value;
         const surnameInput = document.getElementById('surname').value;
         const locationOfElevatorSystem = document.getElementById('locationOfElevatorSystem').value;
-        if (!fileInput || !fileInput.files || fileInput.files.length == 0) {
-            window.alert("PLease verify your images");
-            return;
-        }
-        else if (!usernameInput || !nameInput || !surnameInput) {
+        if (!usernameInput || !nameInput || !surnameInput) {
             window.alert("Please fill the username, name and surname")
         }
         else if (!(vaildationEmail(emailInput))) {
@@ -40,7 +37,15 @@ function submitButton() {
         }
         else if (!locationOfElevatorSystem) {
             window.alert("Please give us know the location you want to setup Elevator");
-            return; ''
+            return;
+        }
+        else if (!addressFather) {
+            window.alert("Please fill your address");
+            return;
+        }
+        else if (!fileInput || !fileInput.files || fileInput.files.length == 0) {
+            window.alert("PLease verify your images");
+            return;
         }
         else {
             const formData = new FormData(this);
@@ -51,10 +56,11 @@ function submitButton() {
                 formData.get('email'),
                 formData.get('phonenumber'),
                 formData.get('elevatorLocation'),
-                formData.get('phoneBackUp'),
+                formData.get('address'),
                 formData.get('description'),
             );
             converFileToBase64(customerInfortion, apiURL)
+            window.alert("Register succeed!");
             this.reset();
         }
     })
@@ -74,7 +80,7 @@ async function addUserAccountToAPI(user, url, base64String) {
                 email: user.email,
                 phonenumber: user.phonenumber,
                 elevatorLocation: user.elevatorLocation,
-                phoneBackUp: user.phoneBackUp,
+                address: user.address,
                 description: user.description,
                 image: base64String
             })
