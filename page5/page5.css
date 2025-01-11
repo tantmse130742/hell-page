@@ -1,0 +1,279 @@
+@import url(../fonts.css);
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+}
+
+.background-container {
+  padding: 0 78px;
+}
+.background-container .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 238px;
+  padding-top: 25px;
+}
+.background-container .nav-container .nav-item {
+  display: flex;
+  gap: 26px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+.background-container .nav-container .nav-item .opacity-low {
+  opacity: 0.4;
+  font-weight: bolder;
+}
+.background-container .nav-container .nav-item .bold {
+  font-weight: bolder;
+}
+.background-container .nav-container .logo-company {
+  width: 330px;
+  height: 75px;
+}
+.background-container .register-heading {
+  font-size: 58px;
+  width: 940px;
+  margin-top: 55px;
+}
+
+.register-container {
+  padding: 90px 173px 127px 173px;
+}
+.register-container .register-title {
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 37px;
+}
+.register-container .username-container {
+  margin-bottom: 36px;
+  font-size: 22px;
+}
+.register-container .username-container .input-username {
+  border: white;
+  width: 350px;
+  font-size: 22px;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  border: none;
+  outline: none;
+}
+.register-container .username-container .input-username:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.register-container .register-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  font-size: 20px;
+  margin-bottom: 37px;
+}
+.register-container .register-section .register-part-left {
+  width: 50%;
+}
+.register-container .register-section .register-part-right {
+  width: 50%;
+}
+.register-container .register-section .input-form {
+  border: white;
+  width: 350px;
+  font-size: 22px;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+  outline: none;
+}
+.register-container .register-section .input-form:focus {
+  border: none;
+}
+.register-container .register-section .input-form:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}
+.register-container .additional-information {
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+.register-container .input-information {
+  width: 98%;
+  height: 250px;
+  font-size: 22px;
+  padding: 17px 0 0 30px;
+  margin-bottom: 60px;
+  outline: none;
+}
+.register-container .input-information:focus {
+  border: 1px solid black;
+}
+.register-container .date-upload {
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+.register-container .upload-file-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  border: 1px solid black;
+  margin-bottom: 65px;
+}
+.register-container .upload-file-border img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.register-container .file-upload {
+  display: none;
+}
+.register-container .submit-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register-container .submit-container .button-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  color: white;
+  border-radius: 25px;
+  width: 225px;
+  height: 55px;
+  background-color: #748d88;
+  border: none;
+  cursor: pointer;
+}
+
+.register-form:hover {
+  border: white;
+  background-color: white;
+}
+
+.container-page {
+  padding: 0 78px 0 78px;
+}
+.container-page .footer .footer-logo {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 60px;
+}
+.container-page .footer .footer-logo ing {
+  width: 249px;
+  height: 54px;
+}
+.container-page .footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  padding: 30px 0 30px 0;
+}
+.container-page .footer .footer-content .footer-description-left {
+  opacity: 0.6;
+}
+.container-page .footer .footer-content .footer-description-left .tooter-first-text {
+  padding-right: 30px;
+}
+.container-page .footer .footer-content .footer-description-right {
+  color: #748d88;
+  font-weight: bolder;
+}
+
+.footer-description-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .background-container .nav-container .nav-item,
+  .container-page .footer .footer-content .footer-description-left {
+    display: none;
+  }
+  .background-container {
+    padding: 0 20px;
+  }
+  .background-container .nav-container {
+    gap: 56px;
+    padding-top: 20px;
+  }
+  .background-container .nav-container .menu-button-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+  }
+  .background-container .nav-container .menu-button-mobile span {
+    display: block;
+    background-color: black;
+    border-radius: 0px;
+    width: 30px;
+    height: 4px;
+    opacity: 0.8;
+  }
+  .background-container .nav-container .logo-company {
+    width: 246px;
+    height: 50px;
+  }
+  .background-container .register-heading {
+    font-size: 32px;
+    width: 100%;
+    margin-top: 48px;
+  }
+  .register-container {
+    padding: 95px 20px 72px 20px;
+  }
+  .register-container .register-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    gap: 0;
+  }
+  .register-container .register-section .register-part-left {
+    width: 100%;
+    margin-bottom: 37px;
+  }
+  .register-container .register-section .register-part-right {
+    width: 100%;
+  }
+  .register-container .input-information {
+    padding: 12px 0 0 13px;
+    width: 96%;
+    margin-bottom: 58px;
+  }
+  .container-page {
+    padding: 0 20px;
+  }
+  .container-page .footer .footer-logo {
+    padding-bottom: 30px;
+  }
+  .container-page .footer .footer-content {
+    flex-direction: column;
+    font-size: 16px;
+    padding: 30px 0 48px 0;
+  }
+  .container-page .footer .footer-content .footer-description-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+    gap: 6px;
+    opacity: 0.4;
+  }
+  .container-page .footer .footer-content .footer-description-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}/*# sourceMappingURL=page5.css.map */

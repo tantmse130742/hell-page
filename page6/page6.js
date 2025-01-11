@@ -36,8 +36,7 @@ async function displayWorkerData() {
                 window.location.href = `tel: ${users.phoneNumber}`
             }
             buttonContactDOM.onclick = () => {
-                getIDWorkerAndNegative(users.id);
-                // window.location =".."
+                selectWorker(users);
             }
 
             userFatherDOM.appendChild(imageAvatarDOM);
@@ -53,33 +52,16 @@ async function displayWorkerData() {
         console.log(`Error;`, error);
     }
 }
-
-async function getIDWorkerAndNegative(idWorker) {
-    const respone = fetch(apiOrders, {
-        method: "PUT",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            idWorkerContact: idWorker
-        })
-    })
-    return (await respone).json();
+function selectWorker(worker) {
+    const workerInforString = encodeURIComponent(JSON.stringify(worker));
+    const workerInfor = `../page5/page5.html?register=true&workerInfor=${workerInforString}`;
+    window.location.href = workerInfor;
 }
-
 async function fetchWorkersData() {
     try {
         const reponse = await fetch(apiURLWorkers);
         return await reponse.json();
 
-    } catch (error) {
-        console.log(error);
-    }
-}
-async function fetchOrdersData() {
-    try {
-        const reponse = await fetch(apiOrders);
-        return await reponse.json()
     } catch (error) {
         console.log(error);
     }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="..//page5/page5.css" />
+    <title>Anfragen Page</title>
+</head>
+
+<body>
+    <div class="background-container">
+        <div class="nav-container">
+            <div class="nav-item">
+                <a class="opacity-low">ÜBER UNS</a>
+                <a class="opacity-low">LEISTUNGEN</a>
+                <a class="opacity-low">REFERENZEN</a>
+                <a class="bold">ANFRAGEN</a>
+                <a class="opacity-low">SERVICE-CENTER</a>
+            </div>
+
+            <div class="menu-button-mobile">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <img src="../asset/often uses/aufzugshandwerk-logo@2x.png" class="logo-company" />
+        </div>
+
+        <div class="register-heading">
+            <p>
+                Wir bereiten Ihnen gerne ein unverbindliches Angebot ganz nach Ihren
+                Vorstellungen vor. Bitte füllen Sie dazu das Formular aus.
+            </p>
+        </div>
+
+    </div>
+    <div class="register-container">
+        <p class="register-title">PERSÖNLICHE ANGABEN</p>
+
+        <form id="register-form" class="register-form" novalidate>
+            <div class="username-container">
+                <input type="text" id="username" name="fullName" class="input-username" placeholder="Firmenname*" />
+                <hr />
+            </div>
+
+            <div class="register-section">
+                <div class="register-part-left">
+                    <input type="text" id="name" name="name" class="input-form" placeholder="Vorname*" />
+                    <hr />
+                </div>
+                <div class="register-part-right">
+                    <input type="text" id="surname" name="surname" class="input-form" placeholder="Nachname*" />
+                    <hr />
+                </div>
+            </div>
+
+            <div class="register-section">
+                <div class="register-part-left">
+                    <input type="number" id="number" name="phoneNumber" class="input-form"
+                        placeholder="Telefonnummer*" />
+                    <hr />
+                </div>
+                <div class="register-part-right">
+                    <input type="email" id="email" name="email" class="input-form" placeholder="E-Mail Adresse*" />
+                    <hr />
+                </div>
+            </div>
+
+            <div class="register-section">
+                <div class="register-part-left">
+                    <input type="text" id="locationOfElevatorSystem" name="elevatorLocation" class="input-form"
+                        placeholder="Standort der Aufzugsanlage*" />
+                    <hr />
+                </div>
+                <div class="register-part-right">
+                    <input type="number" id="backUpPhoneNumber" name="backUpPhoneNumber" class="input-form"
+                        placeholder="Ansprechpartner vor Ort" />
+                    <hr />
+                </div>
+            </div>
+
+            <div>
+                <p class="additional-information">ERGÄNZUNGEN</p>
+                <textarea class="input-information" placeholder="Beschreiben Sie Ihr Anliegen"
+                    name="description"></textarea>
+            </div>
+
+            <div>
+                <p class="date-upload">DATEN-UPLOAD</p>
+                <div class="upload-file-border">
+                    <label id="label">
+                        <div id="inputFileContainer">
+                            <img src="../asset/page5/icon-file-upload.svg" alt="upload-file" id="imageArrow">
+                            <input onchange="displayImageOnInput()" type="file" class="file-upload" id="fileInput">
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Anfragen absenden" class="button-submit"></p>
+            </div>
+        </form>
+    </div>
+
+    <div class="container-page">
+        <div class="footer">
+
+            <div class="footer-logo">
+                <img src="../asset/page2/13.svg">
+            </div>
+            <hr>
+
+            <div class="footer-content">
+                <div class="footer-description-left">
+                    <span class="tooter-first-text"> IMPRESSUM</span>
+                    DATENSCHUTZ
+                </div>
+                <div class="footer-description-mobile">
+                    <span>IMPRESSUM</span>
+                    <span>DATENSCHUTZ</span>
+                </div>
+                <div class="footer-description-right">
+                    LOGIN FÜR FRANCHISEPARTNER
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../page5/page5.js"></script>
+</body>
+
+</html>

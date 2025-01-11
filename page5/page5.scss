@@ -1,0 +1,309 @@
+@import url(../fonts.css);
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-primary);
+}
+
+@mixin flex-box($Ox, $Oy) {
+  display: flex;
+  justify-content: $Ox;
+  align-items: $Oy;
+}
+
+@mixin input-boder-none($font-size) {
+  border: white;
+  width: 350px;
+  font-size: $font-size;
+  margin-bottom: 5px;
+  letter-spacing: 2px;
+}
+
+@mixin title-for-register($margin-bottom) {
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: $margin-bottom;
+}
+
+.background-container {
+  padding: 0 78px;
+
+  .nav-container {
+    @include flex-box(space-between, center);
+    gap: 238px;
+    padding-top: 25px;
+
+    .nav-item {
+      display: flex;
+      gap: 26px;
+      font-size: 20px;
+      letter-spacing: 2px;
+
+      .opacity-low {
+        opacity: 0.4;
+        font-weight: bolder;
+      }
+      .bold {
+        font-weight: bolder;
+      }
+    }
+    .logo-company {
+      width: 330px;
+      height: 75px;
+    }
+  }
+
+  .register-heading {
+    font-size: 58px;
+    width: 940px;
+    margin-top: 55px;
+  }
+}
+
+.register-container {
+  padding: 90px 173px 127px 173px;
+
+  .register-title {
+    @include title-for-register(37px);
+  }
+
+  .username-container {
+    margin-bottom: 36px;
+    font-size: 22px;
+
+    .input-username {
+      @include input-boder-none(22px);
+      border: none;
+      outline: none;
+    }
+    .input-username:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset;
+    }
+  }
+
+  .register-section {
+    @include flex-box(space-between, center);
+    gap: 25px;
+    font-size: 20px;
+    margin-bottom: 37px;
+
+    .register-part-left {
+      width: 50%;
+    }
+
+    .register-part-right {
+      width: 50%;
+    }
+
+    .input-form {
+      @include input-boder-none(22px);
+      outline: none;
+    }
+    .input-form:focus {
+      border: none;
+    }
+    .input-form:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    }
+  }
+
+  .additional-information {
+    @include title-for-register(14px);
+  }
+
+  .input-information {
+    width: 98%;
+    height: 250px;
+    font-size: 22px;
+    padding: 17px 0 0 30px;
+    margin-bottom: 60px;
+    outline: none;
+  }
+  .input-information:focus {
+    border: 1px solid black;
+  }
+
+  .date-upload {
+    @include title-for-register(15px);
+  }
+
+  .upload-file-border {
+    @include flex-box(center, center);
+    width: 100%;
+    height: 100px;
+    border: 1px solid black;
+    margin-bottom: 65px;
+  }
+
+  .upload-file-border img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .file-upload {
+    display: none;
+  }
+
+  .submit-container {
+    @include flex-box(center, center);
+
+    .button-submit {
+      @include flex-box(center, center);
+      font-size: 22px;
+      color: white;
+      border-radius: 25px;
+      width: 225px;
+      height: 55px;
+      background-color: #748d88;
+      border: none;
+      cursor: pointer;
+    }
+  }
+}
+.register-form:hover {
+  border: white;
+  background-color: white;
+}
+
+.container-page {
+  padding: 0 78px 0 78px;
+  .footer {
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 60px;
+
+      ing {
+        width: 249px;
+        height: 54px;
+      }
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      font-size: 18px;
+      padding: 30px 0 30px 0;
+
+      .footer-description-left {
+        opacity: 0.6;
+
+        .tooter-first-text {
+          padding-right: 30px;
+        }
+      }
+
+      .footer-description-right {
+        color: #748d88;
+        font-weight: bolder;
+      }
+    }
+  }
+}
+
+.footer-description-mobile {
+  display: none;
+}
+
+// Media querry mobile display
+@media (max-width: 768px) {
+  .background-container .nav-container .nav-item,
+  .container-page .footer .footer-content .footer-description-left {
+    display: none;
+  }
+
+  .background-container {
+    padding: 0 20px;
+
+    .nav-container {
+      gap: 56px;
+      padding-top: 20px;
+
+      .menu-button-mobile {
+        @include flex-box(space-between, center);
+        flex-direction: column;
+        width: 30px;
+        height: 25px;
+        cursor: pointer;
+      }
+
+      .menu-button-mobile span {
+        display: block;
+        background-color: black;
+        border-radius: 0px;
+        width: 30px;
+        height: 4px;
+        opacity: 0.8;
+      }
+
+      .logo-company {
+        width: 246px;
+        height: 50px;
+      }
+    }
+
+    .register-heading {
+      font-size: 32px;
+      width: 100%;
+      margin-top: 48px;
+    }
+  }
+
+  .register-container {
+    padding: 95px 20px 72px 20px;
+
+    .register-section {
+      @include flex-box(center, center);
+      flex-direction: column;
+      font-size: 16px;
+      gap: 0;
+
+      .register-part-left {
+        width: 100%;
+        margin-bottom: 37px;
+      }
+
+      .register-part-right {
+        width: 100%;
+      }
+    }
+
+    .input-information {
+      padding: 12px 0 0 13px;
+      width: 96%;
+      margin-bottom: 58px;
+    }
+  }
+  .container-page {
+    padding: 0 20px;
+
+    .footer {
+      .footer-logo {
+        padding-bottom: 30px;
+      }
+      .footer-content {
+        flex-direction: column;
+        font-size: 16px;
+        padding: 30px 0 48px 0;
+
+        .footer-description-mobile {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 20px;
+          gap: 6px;
+          opacity: 0.4;
+        }
+
+        .footer-description-right {
+          @include flex-box(center, center);
+        }
+      }
+    }
+  }
+}
