@@ -1,5 +1,6 @@
 
-const apiURLWorkers = ("https://67701d46b353db80c3246245.mockapi.io/listUser/workers");
+import { fetchWorkersData } from "../fetchDataAPI/fetchWorkerData.js"
+
 const apiOrders = ("https://67701d46b353db80c3246245.mockapi.io/listUser/orders");
 displayWorkerData();
 
@@ -8,6 +9,7 @@ async function displayWorkerData() {
         const workers = await fetchWorkersData();
         const userFatherDOM = document.getElementById('userDisplay');
         workers.forEach(users => {
+            const { image, fullName, contactPerson, address, phoneNumber, backUpPhoneNumber } = users
             const imageAvatarDOM = document.createElement("img");
 
             const fullnameDOM = document.createElement("p");
@@ -21,19 +23,19 @@ async function displayWorkerData() {
             buttonCallDOM.className = "button";
             buttonContactDOM.className = "button";
 
-            imageAvatarDOM.src = users.image;
-            fullnameDOM.textContent = users.fullName;
-            contactPersonDOM.textContent = users.contactPerson;
-            addressDOM.textContent = users.address;
-            phoneNumberDOM.textContent = `T +${users.phoneNumber}`;
-            backUpphoneNumberDOM.textContent = `F +{${users.backUpPhoneNumber}`;
+            imageAvatarDOM.src = image
+            fullnameDOM.textContent = fullName
+            contactPersonDOM.textContent = contactPerson;
+            addressDOM.textContent = address;
+            phoneNumberDOM.textContent = `T +${phoneNumber}`;
+            backUpphoneNumberDOM.textContent = `F +{${backUpPhoneNumber}`;
             buttonCallDOM.textContent = "ANRUFEN";
             buttonCallDOM.style.display = "block";
             buttonContactDOM.textContent = "KONTAKTFORMULAR";
             buttonContactDOM.style.display = "block";
 
             buttonCallDOM.onclick = () => {
-                window.location.href = `tel: ${users.phoneNumber}`
+                window.location.href = `tel: ${phoneNumber}`
             }
             buttonContactDOM.onclick = () => {
                 selectWorker(users);
@@ -56,13 +58,4 @@ function selectWorker(worker) {
     const workerInforString = encodeURIComponent(JSON.stringify(worker));
     const workerInfor = `../page5/page5.html?register=true&workerInfor=${workerInforString}`;
     window.location.href = workerInfor;
-}
-async function fetchWorkersData() {
-    try {
-        const reponse = await fetch(apiURLWorkers);
-        return await reponse.json();
-
-    } catch (error) {
-        console.log(error);
-    }
 }

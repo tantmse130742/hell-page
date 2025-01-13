@@ -146,7 +146,6 @@ async function addUserAccountToAPI(user, url, base64String) {
     } catch (error) {
         console.error('Error:', error)
     }
-
 }
 
 function vaildationEmail(emailInput) {
